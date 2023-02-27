@@ -13,7 +13,7 @@ function Welcome(props){
 }
 
 function DeleteAllButton(props) {
-  return <button onClick={() => props.deleteAll()}> Delete All</button>
+  return<button onClick={() => props.deleteAll()}> Delete All</button>
 }
 
 class App extends Component {
@@ -29,18 +29,18 @@ class App extends Component {
         imdbRating: '9.2',
         director: "Francis Ford Coppola",
         year: 1972,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3, 16),
       },
 
       {
         title: "The Shawshank Redemption",
         actors: ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
-        plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.".substring(3,16),
         genre: "Drama",
         imdbRating: '9.3',
         director: "Frank Darabont",
         year: 1994,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "The Dark Knight",
@@ -50,7 +50,7 @@ class App extends Component {
         imdbRating: 9.0,
         director: "Christopher Nolan",
         year: 2008,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "Pulp Fiction",
@@ -60,7 +60,7 @@ class App extends Component {
         imdbRating: 8.9,
         director: "Quentin Tarantino",
         year: 1994,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "The Lord of the Rings: The Return of the King",
@@ -70,7 +70,7 @@ class App extends Component {
         imdbRating: 8.9,
         director: "Peter Jackson",
         year: 2003,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "Forrest Gump",
@@ -80,7 +80,7 @@ class App extends Component {
         imdbRating: 8.8,
         director: "Robert Zemeckis",
         year: 1994,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "Inception",
@@ -90,7 +90,7 @@ class App extends Component {
         imdbRating: 8.7,
         director: "Christopher Nolan",
         year: 2010,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "The Matrix",
@@ -100,7 +100,7 @@ class App extends Component {
         imdbRating: 8.7,
         director: "Lana Wachowski, Lilly Wachowski",
         year: 1999,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "Schindler's List",
@@ -110,7 +110,7 @@ class App extends Component {
         imdbRating: 8.9,
         director: "Steven Spielberg",
         year: 1993,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       {
         title: "Goodfellas",
@@ -120,7 +120,7 @@ class App extends Component {
         imdbRating: 8.7,
         director: "Martin Scorsese",
         year: 1990,
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
       },
       
     ],
@@ -148,17 +148,20 @@ removeAllMovies = () => {
     this.setState({movies: [...this.state.movies, movie ]})
   }
 
+
+
+
+
   render() {
-    
-  
-    
     return (
       
       <div className="container">
       <Welcome name="Film List" />
-      {/* <Clock name="Manny"/> */}
+     
+      <><span> &nbsp;
       <DeleteAllButton deleteAll={this.removeAllMovies}/>
-
+      </span></>
+      <Form addMovie={this.addMovie} />
       <Table
         movieData = {this.state.movies}
         
@@ -166,8 +169,8 @@ removeAllMovies = () => {
 
         removeAllMovies = {this.removeAllMovies}
       />
-      <> <br></br> </>
-        <Form addMovie={this.addMovie} />
+    
+       
       </div>
     )
   }

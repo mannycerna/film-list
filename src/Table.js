@@ -7,14 +7,46 @@ const TableHeader = () => {
       <thead>
       <><br/></>
         <tr>
-          <th>Title</th>
-          <th>Actors</th>
-          <th>Plot</th>
-          <th>Genre</th>
-          <th>IMDB</th>
-          <th>Director</th>
-          <th>Year</th>
-          <th>Date Added</th>
+          <th   align="center"
+                colSpan={1}
+                rowSpan={2}
+                bgcolor="yellow">Title
+          </th>
+          <th align="center"
+              colSpan={1}
+              rowSpan={2}
+              bgcolor="yellow">Actors
+          </th>
+          <th  align="center"
+                colSpan={1}
+                rowSpan={2}
+                bgcolor="yellow">Plot
+          </th>
+          <th align="center"
+                colSpan={1}
+                rowSpan={2}
+                bgcolor="yellow">Genre
+          </th>
+          <th align="center"
+                colSpan={1}
+                rowSpan={2}
+                bgcolor="yellow">IMDB
+          </th>
+          <th align="center"
+                colSpan={1}
+                rowSpan={2}
+                bgcolor="yellow">Director
+          </th>
+          <th align="center"
+                colSpan={1}
+                rowSpan={2}
+                bgcolor="yellow">Year
+          </th>
+          <th align="center"
+                colSpan={1}
+                rowSpan={2}
+                bgcolor="yellow">Date Added
+          </th>
         </tr> <><br/> </>
       </thead>
     )
@@ -23,17 +55,24 @@ const TableHeader = () => {
     const rows = props.movieData.map((row, index) => {
       return (
       <tr key={index}>
-        <td>{row.title} </td>
-        <> <br></br> </>
-        <td>{row.actors}</td>
-        <td>{row.plot}</td>
-        <td>{row.genre}</td>
-        <td>{row.imdbRating}</td>
-        <td>{row.director}</td>
-        <td>{row.year}</td>
-        <td>{row.dateAdded}</td>
+        <td align="center"
+                bgcolor="aqua">{row.title} </td>
+        <td align="left"
+                bgcolor="aqua">{row.actors}</td>
+        <td align="left"
+                bgcolor="aqua">{row.plot}</td>
+        <td align="center"
+                bgcolor="aqua">{row.genre}</td>
+        <td align="center"
+                bgcolor="aqua">{row.imdbRating}</td>
+        <td align="left"
+                bgcolor="aqua">{row.director}</td>
+        <td align="center"
+                bgcolor="aqua" >{row.year}</td>
+        <td align="center"
+                bgcolor="aqua">{row.dateAdded}</td>
         <td>
-          <br/><button onClick={() => props.removeMovie(index)}>Delete</button>
+          <button onClick={() => props.removeMovie(index)}>Delete</button>
         </td>
       </tr>
       )

@@ -15,7 +15,7 @@ class Form extends Component {
         imdbRating: '',
         director: '',
         year: '',
-        dateAdded: new Date().toString(),
+        dateAdded: new Date().toString().substring(3,16),
     };
 
     this.state = this.initialState
@@ -33,14 +33,14 @@ class Form extends Component {
 
     onFormSubmit = (event) => {
         event.preventDefault();
-        const newDate = new Date().toString();
-        this.setState({date:newDate});
+        const newDate = new Date().toString().substring(3, 16);
+        this.setState({date:newDate.substring(3, 16)});
 
 
         this.props.addMovie(this.state);
 
-        this.initialState.date = newDate();
-        this.setState(this.initialState);
+        // this.initialState.date = newDate();
+        // this.setState(this.initialState);
        
       }
 
@@ -49,7 +49,9 @@ class Form extends Component {
         const {title, actors, plot, genre, imdbRating, director, year } = this.state
 
         return (
-            <form onSubmit={this.onFormSubmit}>
+          
+            <form 
+                onSubmit={this.onFormSubmit}>
                 <label htmlFor="title">Title</label>
                 <input
                 type="text"
@@ -108,12 +110,8 @@ class Form extends Component {
                 onChange={this.handleChange} />*/
                 <button type="submit">Submit</button> }
             </form>
-        );
-        
-    }
-    
-
-      
+        ); 
+    }   
 }
 
 
