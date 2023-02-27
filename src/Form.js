@@ -39,8 +39,8 @@ class Form extends Component {
 
         this.props.addMovie(this.state);
 
-        // this.initialState.date = newDate();
-        // this.setState(this.initialState);
+        this.initialState.date = newDate();
+        this.setState(this.initialState);
        
       }
 
